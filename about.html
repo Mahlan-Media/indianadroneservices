@@ -4,101 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Indiana Drone Services</title>
-  <meta name="description" content="Learn about Indiana Drone Services and Mahlan Media—professional aerial video and photography across Indiana." />
+
   <style>
     :root {
-      --bg: #000;
+      --bg: #000000;
       --text: #f7f1dd;
-      --gold: #cdb35b;
       --muted: #dccb8f;
-      --border: rgba(205,179,91,0.24);
+      --gold: #cdb35b;
+      --border: rgba(205, 179, 91, 0.24);
       --radius: 28px;
+      --max: 1180px;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Inter, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg,#000,#050505,#000);
+      background:
+        radial-gradient(circle at top center, rgba(205,179,91,0.12), transparent 24%),
+        linear-gradient(180deg, #000000 0%, #050505 55%, #000000 100%);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none; /* 🔥 removes underline */
     }
 
     .container {
-      width: min(1100px, 90%);
-      margin: auto;
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
     }
 
+    /* NAV (same as other pages) */
     .nav {
-      backdrop-filter: blur(12px);
-      background: rgba(0,0,0,0.8);
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(0, 0, 0, 0.82);
+      border-bottom: 1px solid rgba(205, 179, 91, 0.14);
     }
 
     .nav-inner {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
     }
 
     .brand {
-      font-family: "Lulo Clean One Bold", sans-serif;
-      font-size: .9rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
+      font-family: "Lulo Clean One Bold", Arial;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff5cc;
     }
 
-    .nav a { color: var(--muted); margin-left:15px; }
+    .brand-sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: #fff3c4;
+    }
 
     .btn {
-      padding:.8rem 1.2rem;
-      border-radius:999px;
-      border:1px solid var(--border);
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
       background: rgba(205,179,91,0.2);
+      font-weight: 700;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 0 2.5rem;
     }
 
     h1 {
-      font-size: clamp(2.5rem,5vw,4rem);
-      margin-top:60px;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      color: #fff1c4;
+      margin-top: 0;
     }
 
     p {
-      color:#e9dba8;
-      max-width:700px;
-      line-height:1.6;
+      color: #eddca7;
+      max-width: 700px;
     }
 
-    .section {
-      padding:60px 0;
-    }
-
+    /* GLASS CARDS */
     .glass {
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(16px);
-      border:1px solid var(--border);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding:30px;
-      margin-top:30px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: var(--shadow);
     }
 
-    ul { color:#e9dba8; }
+    ul {
+      color: #eddca7;
+    }
 
     footer {
-      border-top:1px solid var(--border);
-      padding:30px 0;
-      margin-top:60px;
-      color:#dccb8a;
+      border-top: 1px solid rgba(205, 179, 91, 0.16);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      color: #dccb8a;
     }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
   <div class="container nav-inner">
-    <div>
+    <a href="index.html" class="brand-wrap">
       <div class="brand">Indiana Drone Services</div>
-      <div style="font-size:.7rem;color:var(--gold)">A Mahlan Media Company</div>
-    </div>
-    <div>
+      <div class="brand-sub">A Mahlan Media Company</div>
+    </a>
+    <div class="nav-links">
       <a href="portfolio.html">Portfolio</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
@@ -107,20 +168,21 @@
   </div>
 </nav>
 
-<section class="section container">
+<!-- HERO -->
+<section class="hero container">
   <h1>Built to make your visuals look professional.</h1>
   <p>
-    Indiana Drone Services is part of Mahlan Media, a creative media company focused on delivering high-quality video and photography for businesses, organizations, and projects across Indiana.
+    Indiana Drone Services operates under Mahlan Media, delivering high-quality aerial video and photography across Indiana for businesses, properties, and projects that need to stand out.
   </p>
   <p>
-    The goal isn’t just to capture footage—it’s to create visuals that actually help you present your work, market effectively, and stand out.
+    The focus is simple: clean visuals, reliable execution, and content that actually helps you communicate and market effectively.
   </p>
 
   <div class="glass">
     <h2>What sets this apart</h2>
     <ul>
       <li>FAA certified and fully compliant</li>
-      <li>Consistent, high-quality cinematic footage</li>
+      <li>Consistent, cinematic-quality footage</li>
       <li>Fast turnaround and reliable scheduling</li>
       <li>Experience across construction, real estate, and marketing</li>
     </ul>
@@ -129,10 +191,9 @@
   <div class="glass">
     <h2>About Mahlan Media</h2>
     <p>
-      Mahlan Media is a creative media business specializing in video production, editing, and digital content. Indiana Drone Services operates as a focused branch, allowing for dedicated aerial work while still offering full-scale creative support when needed.
+      Mahlan Media is a creative media business specializing in video production, editing, and digital content. Indiana Drone Services exists as a focused branch, allowing for dedicated aerial work while still offering full-scale creative support when needed.
     </p>
   </div>
-
 </section>
 
 <footer class="container">
