@@ -1,19 +1,655 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Indiana Drone Services</title>
-  <meta name="description" content="Professional drone services in Indiana. FAA certified drone pilot offering video, real estate, and construction media.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indiana Drone Services | FAA Certified Drone Video & Photography</title>
+  <meta name="description" content="Indiana Drone Services offers FAA-certified drone video and photography for real estate, construction, tourism, commercial marketing, and events across Indiana." />
+  <meta name="keywords" content="Indiana drone services, drone photography Indiana, drone videography Indiana, FAA certified drone pilot Indiana, real estate drone photography Indiana, construction drone video Indiana" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Mahlan Media" />
+
+  <meta property="og:title" content="Indiana Drone Services" />
+  <meta property="og:description" content="FAA-certified drone video and photography across Indiana for real estate, construction, tourism, and business marketing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://indianadroneservices.com" />
+
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-soft: #111827;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #dbeafe;
+      --accent-strong: #ffffff;
+      --max: 1180px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(59,130,246,0.18), transparent 30%),
+        radial-gradient(circle at left center, rgba(255,255,255,0.08), transparent 22%),
+        linear-gradient(180deg, #0b0f14 0%, #0f172a 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 15, 20, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.05rem;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.92rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero {
+      padding: 5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.4rem 0.7rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.05;
+      margin: 0 0 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.3rem);
+      max-width: 12ch;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin: 0 0 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-points {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual {
+      aspect-ratio: 4 / 5;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(11,15,20,0.1), rgba(11,15,20,0.65)),
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      min-height: 500px;
+    }
+
+    .hero-overlay-box {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      background: rgba(11,15,20,0.62);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 1rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-overlay-box strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    section {
+      padding: 2rem 0 4rem;
+    }
+
+    .section-head {
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .section-head p {
+      max-width: 58ch;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .step-number {
+      width: 2rem;
+      height: 2rem;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      margin-bottom: 0.8rem;
+      font-weight: 800;
+    }
+
+    .work-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .work-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .work-image {
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .work-copy {
+      padding: 1.1rem;
+    }
+
+    .stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+    }
+
+    .about-wrap,
+    .cta-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .list {
+      padding-left: 1.1rem;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .list li + li { margin-top: 0.55rem; }
+
+    .contact-card form {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .contact-card input,
+    .contact-card textarea,
+    .contact-card select {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font: inherit;
+    }
+
+    .contact-card textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact-card input::placeholder,
+    .contact-card textarea::placeholder {
+      color: #94a3b8;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.4rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-wrap,
+      .cta-wrap,
+      .services-grid,
+      .process-grid,
+      .work-grid,
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-grid,
+      .about-wrap,
+      .cta-wrap,
+      .services-grid,
+      .process-grid,
+      .work-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      h1 { max-width: 100%; }
+
+      .hero-visual {
+        min-height: 380px;
+      }
+    }
+  </style>
 </head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">Indiana Drone Services <span>by Mahlan Media</span></a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
 
-<body style="font-family: Arial; text-align: center; padding: 50px;">
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">FAA Certified Drone Video & Photography in Indiana</div>
+        <h1>Drone content that makes your business look bigger, sharper, and more credible.</h1>
+        <p>
+          Indiana Drone Services creates cinematic aerial video and photo content for real estate, construction, tourism, commercial marketing, and events across Indiana.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
+          <a class="btn btn-secondary" href="https://mahlanmedia.com" target="_blank" rel="noopener">View Mahlan Media</a>
+        </div>
+        <div class="hero-points">
+          <span>FAA Part 107 Certified</span>
+          <span>•</span>
+          <span>Fast Turnaround</span>
+          <span>•</span>
+          <span>Commercial-Ready Media</span>
+        </div>
+      </div>
 
-  <h1>Indiana Drone Services</h1>
-  <p>High-quality drone video and photography across Indiana.</p>
+      <div class="hero-card">
+        <div class="hero-visual">
+          <div class="hero-overlay-box">
+            <strong>Built for results</strong>
+            <span>Clean visuals, trustworthy branding, and footage that helps businesses stand out online.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <h2>Services</h2>
-  <p>Real Estate • Construction • Marketing • Events</p>
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Services</div>
+          <h2>Professional drone services across Indiana</h2>
+        </div>
+        <p>
+          Whether you need recurring project updates or a single high-impact shoot, these services are built to help you market, document, and grow.
+        </p>
+      </div>
 
-  <a href="https://mahlanmedia.com">Get a Quote</a>
+      <div class="grid services-grid">
+        <article class="card">
+          <h3>Construction Progress Video</h3>
+          <p>Monthly or recurring drone shoots for job sites, development updates, investor communication, and project marketing.</p>
+        </article>
+        <article class="card">
+          <h3>Real Estate Media</h3>
+          <p>Aerial photos and video that help listings stand out, showcase land, and give buyers a stronger sense of scale and location.</p>
+        </article>
+        <article class="card">
+          <h3>Commercial Marketing</h3>
+          <p>High-end drone visuals for business websites, ads, social media campaigns, and brand storytelling.</p>
+        </article>
+        <article class="card">
+          <h3>Tourism & Community Content</h3>
+          <p>Capture parks, downtown areas, attractions, events, and local experiences with polished cinematic footage.</p>
+        </article>
+        <article class="card">
+          <h3>Event Coverage</h3>
+          <p>Dynamic aerial support for festivals, school events, community gatherings, and outdoor experiences.</p>
+        </article>
+        <article class="card">
+          <h3>Custom Media Packages</h3>
+          <p>Need more than drone? Pair aerial footage with edited video, photography, or social content through Mahlan Media.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Process</div>
+          <h2>Simple, fast, and business-friendly</h2>
+        </div>
+        <p>No bloated agency process. Just clear communication, sharp visuals, and a finished product you can actually use.</p>
+      </div>
+
+      <div class="grid process-grid">
+        <article class="card">
+          <div class="step-number">1</div>
+          <h3>Tell me the goal</h3>
+          <p>Share the location, project type, and how you want the media to be used.</p>
+        </article>
+        <article class="card">
+          <div class="step-number">2</div>
+          <h3>Plan the shoot</h3>
+          <p>Flight planning, safety, timing, and creative direction are handled before filming day.</p>
+        </article>
+        <article class="card">
+          <div class="step-number">3</div>
+          <h3>Capture the content</h3>
+          <p>Get polished aerial footage and photos captured with a cinematic, commercial mindset.</p>
+        </article>
+        <article class="card">
+          <div class="step-number">4</div>
+          <h3>Receive ready-to-use media</h3>
+          <p>Final files are delivered for websites, social media, project updates, listings, or ads.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Featured Work</div>
+          <h2>The kind of footage that sells the scale</h2>
+        </div>
+        <p>Swap these sample images with your real screenshots, thumbnails, or project stills later.</p>
+      </div>
+
+      <div class="grid work-grid">
+        <article class="card work-card">
+          <div class="work-image" style="background-image:url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="work-copy">
+            <h3>Construction & Development</h3>
+            <p>Show ongoing progress, property scale, and site context in a way ground shots cannot.</p>
+          </div>
+        </article>
+        <article class="card work-card">
+          <div class="work-image" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="work-copy">
+            <h3>Real Estate & Land</h3>
+            <p>Highlight homes, lots, neighborhoods, and location advantages with polished aerial visuals.</p>
+          </div>
+        </article>
+        <article class="card work-card">
+          <div class="work-image" style="background-image:url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="work-copy">
+            <h3>Events & Community</h3>
+            <p>Capture energy, crowd scale, and atmosphere for promos, recaps, and tourism marketing.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid stats">
+        <article class="card stat">
+          <strong>FAA</strong>
+          <span>Part 107 certified drone operator</span>
+        </article>
+        <article class="card stat">
+          <strong>Fast</strong>
+          <span>Turnaround built for real business needs</span>
+        </article>
+        <article class="card stat">
+          <strong>Local</strong>
+          <span>Indiana-based with regional knowledge</span>
+        </article>
+        <article class="card stat">
+          <strong>Clean</strong>
+          <span>Cinematic visuals ready for web and social</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-wrap">
+      <article class="card">
+        <div class="eyebrow">About</div>
+        <h2>Built by a real filmmaker, not a stock-content agency</h2>
+        <p style="color: var(--muted);">
+          Indiana Drone Services is powered by Mahlan Media, a Fort Wayne-based creative business focused on high-quality video, drone content, and marketing visuals. The goal is simple: create media that looks premium and actually helps clients grow.
+        </p>
+        <p style="color: var(--muted); margin-bottom: 0;">
+          This brand is ideal for businesses searching specifically for drone services in Indiana, while still connecting back to the broader Mahlan Media brand for full-service work.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="eyebrow">Why choose this</div>
+        <h2>Strong SEO, strong visuals, simple path to contact</h2>
+        <ul class="list">
+          <li>Keyword-focused structure for Indiana drone service searches</li>
+          <li>Professional trust signals without clutter</li>
+          <li>Easy to duplicate for Fort Wayne Drone Services</li>
+          <li>Built as a clean one-page site for speed and simplicity</li>
+          <li>Connects naturally to your main brand and portfolio</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container cta-wrap">
+      <article class="card">
+        <div class="eyebrow">Let’s work</div>
+        <h2>Need drone media in Indiana?</h2>
+        <p style="color: var(--muted);">
+          Reach out for pricing, availability, or a custom quote. You can keep this form, replace it with Formspree later, or simply swap the button with your email address.
+        </p>
+        <div style="display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:1.2rem;">
+          <a class="btn btn-primary" href="mailto:hello@mahlanmedia.com">Email Mahlan Media</a>
+          <a class="btn btn-secondary" href="https://mahlanmedia.com" target="_blank" rel="noopener">See Main Site</a>
+        </div>
+      </article>
+
+      <article class="card contact-card">
+        <h3 style="margin-bottom: 0.8rem;">Quick Inquiry Form</h3>
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Your name" />
+          <input type="email" name="email" placeholder="Your email" />
+          <select name="project">
+            <option value="">Project type</option>
+            <option>Construction</option>
+            <option>Real Estate</option>
+            <option>Commercial Marketing</option>
+            <option>Tourism / Community</option>
+            <option>Event Coverage</option>
+            <option>Other</option>
+          </select>
+          <textarea name="message" placeholder="Tell me about the project"></textarea>
+          <button class="btn btn-primary" type="submit">Request a Quote</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-line">
+      <div>© 2026 Indiana Drone Services by Mahlan Media</div>
+      <div>Fort Wayne, Indiana • Serving clients across the state</div>
+    </div>
+  </footer>
 </body>
 </html>
