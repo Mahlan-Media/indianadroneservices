@@ -2,133 +2,184 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Mahlan Media LLC | Drone Services in Indiana</title>
-  <meta name="description" content="Mahlan Media LLC provides professional drone services in Indiana including aerial photography, videography, real estate media, and construction progress filming." />
-  <meta name="keywords" content="Indiana drone services, drone photography Indiana, aerial videography Indiana, real estate drone footage Indiana, construction drone progress, Fort Wayne drone services" />
 
-  <meta name="author" content="Mahlan Media LLC" />
+  <meta name="description" content="Mahlan Media LLC provides professional drone services in Indiana including aerial photography, videography, real estate media, and construction progress tracking." />
+  <meta name="keywords" content="Indiana drone services, drone photography Indiana, aerial videography Indiana, Fort Wayne drone services, real estate drone media Indiana" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Mahlan Media LLC | Drone Services in Indiana" />
-  <meta property="og:description" content="Professional drone photography and videography across Indiana." />
-  <meta property="og:type" content="website" />
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Lato', sans-serif;
     }
 
-    body, html {
-      height: 100%;
+    body {
       background: #000;
       color: #fff;
     }
 
-    /* Background video */
-    .video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .video-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.55;
-    }
-
-    /* Overlay content */
-    .content {
-      position: relative;
+    /* HERO */
+    .hero {
       height: 100vh;
+      background: url("hero.jpg") center/cover no-repeat;
+      position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 20px;
     }
 
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+    }
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: #c0a44d;
+      letter-spacing: 1px;
     }
 
     h2 {
+      margin-top: 15px;
       font-weight: 300;
-      margin-bottom: 20px;
-      max-width: 700px;
+      font-size: 1.2rem;
+      color: #ddd;
+      line-height: 1.6;
     }
 
     .badge {
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 0.9rem;
-      opacity: 0.8;
+      color: #aaa;
     }
 
-    .cta {
-      margin-top: 25px;
-      display: inline-block;
-      padding: 12px 20px;
-      background: #ffffff;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
+    /* BUTTONS */
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 22px;
       border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s;
     }
 
-    .cta:hover {
-      background: #ddd;
+    .primary {
+      background: #c0a44d;
+      color: #000;
+    }
+
+    .primary:hover {
+      background: #d6bc5f;
+    }
+
+    .secondary {
+      border: 1px solid #c0a44d;
+      color: #c0a44d;
+    }
+
+    .secondary:hover {
+      background: #c0a44d;
+      color: #000;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .section h3 {
+      color: #c0a44d;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ccc;
+      line-height: 1.7;
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
+      padding: 30px 20px;
+      text-align: center;
       font-size: 0.85rem;
-      opacity: 0.8;
+      color: #777;
+      border-top: 1px solid #111;
     }
 
     footer a {
-      color: #fff;
-      text-decoration: underline;
+      color: #c0a44d;
+      text-decoration: none;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Background Video -->
-  <div class="video-container">
-    <video autoplay muted loop playsinline>
-      <source src="your-video.mp4" type="video/mp4">
-    </video>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overlay"></div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h1>Mahlan Media LLC</h1>
-    <h2>Professional drone services across Indiana including aerial photography, videography, real estate media, and construction progress documentation.</h2>
+    <div class="hero-content">
+      <h1>Mahlan Media LLC</h1>
 
-    <div class="badge">
-      Serving Indiana • Based in Fort Wayne • FAA Licensed Drone Operator
+      <h2>
+        Professional drone services across Indiana specializing in aerial photography, videography, real estate media, and construction progress tracking.
+      </h2>
+
+      <div class="badge">
+        Based in Fort Wayne • FAA Licensed Drone Operator • Serving all Indiana
+      </div>
+
+      <div class="buttons">
+        <a class="btn primary" href="https://mahlanmedia.com">Visit Main Site</a>
+        <a class="btn secondary" href="mailto:Mahlan@mahlanmedia.com">Contact Now</a>
+      </div>
     </div>
+  </section>
 
-    <a class="cta" href="https://mahlanmedia.com">Visit Main Site</a>
+  <!-- INFO SECTION -->
+  <section class="section">
+    <h3>Drone Services in Indiana</h3>
+    <p>
+      Mahlan Media LLC provides professional aerial imaging services across Indiana.
+      From real estate marketing to construction documentation and cinematic drone footage,
+      we help businesses and organizations capture high-quality visual content that stands out.
+    </p>
+  </section>
 
-    <footer>
-      © Mahlan Media LLC | This site is operated under Mahlan Media LLC and is not affiliated with Indiana Drone Services LLC.
-    </footer>
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    © Mahlan Media LLC • All Rights Reserved <br/>
+    <span style="color:#c0a44d;">
+      Not affiliated with Indiana Drone Services LLC
+    </span>
+  </footer>
 
 </body>
 </html>
